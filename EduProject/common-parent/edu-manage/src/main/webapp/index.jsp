@@ -165,6 +165,7 @@
                     });
                     // layer.msg('添加');
                     break;
+
                 case 'update':
                     if (data.length === 0) {
                         layer.msg('请选择一行');
