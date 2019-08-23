@@ -1,7 +1,8 @@
 package com.xieyipeng.edu.web.controller.base;
 
+import org.apache.log4j.Logger;
+
 import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 
 public class BaseController<T> {
     public static String MANAGE_PAGE;
@@ -11,6 +12,8 @@ public class BaseController<T> {
     public static final String MANAGE = "manage";
     public static final String INFO = "info";
     public static final String EDIT = "edit";
+
+    public Logger logger = Logger.getLogger(BaseController.class);
 
     public BaseController() {
         //1、获取泛型的真实类型
@@ -24,7 +27,5 @@ public class BaseController<T> {
         MANAGE_PAGE = model_name + "/" + MANAGE;
         INFO_PAGE = model_name + "/" + INFO;
         EDIT_PAGE = model_name + "/" + EDIT;
-        System.out.println("==="+MANAGE_PAGE);
-
     }
 }

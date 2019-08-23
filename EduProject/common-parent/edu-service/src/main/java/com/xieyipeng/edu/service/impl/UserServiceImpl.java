@@ -6,6 +6,8 @@ import com.xieyipeng.edu.service.base.BaseServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class UserServiceImpl extends BaseServiceImpl<User> implements IUserService {
@@ -14,6 +16,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements IUserServi
     public User login(String username, String password) {
         return null;
     }
+
 
     @Override
     public User findById(Integer id) {
@@ -43,5 +46,10 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements IUserServi
     @Override
     public void insert(User user) {
 
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userMapper.findAll();
     }
 }
