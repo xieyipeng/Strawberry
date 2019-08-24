@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/commen-parent/IntelligentStrawberry-api/IntelligentStrawberry-api.iml" filepath="$PROJECT_DIR$/commen-parent/IntelligentStrawberry-api/IntelligentStrawberry-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commen-parent/IntelligentStrawberry-dao/IntelligentStrawberry-dao.iml" filepath="$PROJECT_DIR$/commen-parent/IntelligentStrawberry-dao/IntelligentStrawberry-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commen-parent/IntelligentStrawberry-manager/IntelligentStrawberry-manager.iml" filepath="$PROJECT_DIR$/commen-parent/IntelligentStrawberry-manager/IntelligentStrawberry-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commen-parent/IntelligentStrawberry-model/IntelligentStrawberry-model.iml" filepath="$PROJECT_DIR$/commen-parent/IntelligentStrawberry-model/IntelligentStrawberry-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commen-parent/IntelligentStrawberry-service/IntelligentStrawberry-service.iml" filepath="$PROJECT_DIR$/commen-parent/IntelligentStrawberry-service/IntelligentStrawberry-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commen-parent/commen-parent.iml" filepath="$PROJECT_DIR$/commen-parent/commen-parent.iml" />
+    </modules>
+  </component>
+</project>

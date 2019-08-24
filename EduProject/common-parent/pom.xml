@@ -7,6 +7,8 @@
     <groupId>com.xieyipeng.edu</groupId>
     <artifactId>common-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+
     <modules>
         <module>edu-model</module>
         <module>edu-dao</module>

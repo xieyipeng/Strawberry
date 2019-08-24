@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="IntelligentStrawberry-api:war">
+    <output-path>$PROJECT_DIR$/commen-parent/IntelligentStrawberry-api/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>IntelligentStrawberry-api</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="IntelligentStrawberry-api.war">
+      <element id="artifact" artifact-name="IntelligentStrawberry-api:war exploded" />
+    </root>
+  </artifact>
+</component>

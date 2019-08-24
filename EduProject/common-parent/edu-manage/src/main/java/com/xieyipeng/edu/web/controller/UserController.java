@@ -48,6 +48,7 @@ public class UserController extends BaseController<User> {
             map.put("code", 0);
             map.put("msg", "");
             map.put("data", users);
+//            logger.error(map.toString());
             return map.toString();
         } else {
             logger.error("size == null");

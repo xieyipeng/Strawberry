@@ -8,7 +8,7 @@
 
 
     <%
-        String getAllUser = "http://localhost:8080/user/findAllUser.do";
+        String getAllUser = "\'http://localhost:8080/user/findAllUser.do\'";
     %>
 
 
