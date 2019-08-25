@@ -1,19 +1,21 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+
+    <%
+        String getAllUser = "\'http://localhost:8080/user/findAllUser.do\'";
+        String insertUserJSP = "\'http://localhost:8080/user/insertUserJSP.do\'";
+
+    %>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>layout 后台大布局 - Layui</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/layui/css/layui.css">
 
-
-    <%
-        String getAllUser = "\'http://localhost:8080/user/findAllUser.do\'";
-    %>
-
-
 </head>
 <body class="layui-layout-body">
+
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
         <div class="layui-logo">layui 后台布局</div>
@@ -103,6 +105,7 @@
         © layui.com - 底部固定区域
     </div>
 </div>
+
 <script src="${pageContext.request.contextPath}/static/layui/layui.js"></script>
 <script>
     //JavaScript代码区域
@@ -155,8 +158,9 @@
                     layer.open({
                         title: '添加用户',
                         type: 2,
-                        area: ['500px', '500px'],
-                        content: 'http://localhost:8080/user/addUser',//这是 URL，直接发送的这个请求controller会接受到并返回userList页面。也就是弹出来的页面
+                        // area: ['500px', '500px'],
+                        area: '400px',
+                        content: <%=insertUserJSP%>,//这是 URL，直接发送的这个请求controller会接受到并返回userList页面。也就是弹出来的页面
                         // btn : ['确定'] ,
                         yes: function (index, layero) {
                             layer.close(index);
@@ -183,7 +187,6 @@
                     }
                     break;
             }
-            ;
         });
 
 
@@ -237,7 +240,7 @@
                     }
                 })
             }
-        }
+        };
 
         $('.chu.layui-btn').on('click', function () {
             var type = $(this).data('type');

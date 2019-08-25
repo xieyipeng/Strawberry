@@ -6,11 +6,34 @@ import com.xieyipeng.edu.service.base.BaseServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
 public class UserServiceImpl extends BaseServiceImpl<User> implements IUserService {
+
+    @Override
+    public List<User> findAll() {
+        return userMapper.findAll();
+    }
+
+    @Override
+    public void insertUser(Integer id, String username, String password) {
+        Map<String, Object> param = new HashMap<>();
+        param.put("id", id);
+        param.put("username", username);
+        param.put("password", password);
+        userMapper.insertUser(param);
+    }
+
+    @Override
+    public void deleteUser(Integer id) {
+        Map<String, Object> param = new HashMap<>();
+        param.put("id",id);
+        userMapper.deleteUser(param);
+    }
 
     @Override
     public User login(String username, String password) {
@@ -48,8 +71,5 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements IUserServi
 
     }
 
-    @Override
-    public List<User> findAll() {
-        return userMapper.findAll();
-    }
+
 }

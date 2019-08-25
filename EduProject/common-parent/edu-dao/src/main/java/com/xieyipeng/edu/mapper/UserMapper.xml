@@ -2,7 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xieyipeng.edu.mapper.UserMapper">
 
+
     <select id="findById" resultType="user" parameterType="int">SELECT * FROM t_user WHERE id = #{id}</select>
-    <select id="findAll" resultType="com.xieyipeng.edu.model.User" >SELECT * FROM t_user</select>
+
+    <select id="findAll" resultType="com.xieyipeng.edu.model.User">SELECT * FROM t_user</select>
+    <insert id="insertUser" parameterType="java.util.Map">
+        INSERT INTO t_user(id,username,password) values (#{param.id},#{param.username},#{param.password})
+    </insert>
+
+    <delete id="deleteUser" parameterType="java.util.Map">
+        DELETE FROM t_user WHERE id=#{param.id}
+    </delete>
 
 </mapper>

@@ -1,5 +1,6 @@
 package com.xieyipeng.edu.web.controller;
 
+import com.sun.deploy.net.HttpResponse;
 import com.xieyipeng.edu.model.User;
 import com.xieyipeng.edu.service.IUserService;
 import com.xieyipeng.edu.web.controller.base.BaseController;
@@ -9,9 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("user")
@@ -20,18 +22,50 @@ public class UserController extends BaseController<User> {
     @Autowired
     private IUserService userService;
 
-    @RequestMapping("login")
-    public String login() {
-        System.out.println("nihao");
-        return "/user/update";
+
+    @RequestMapping("insertUser")
+    public String insertUser(HttpServletRequest request, HttpServletResponse response) {
+        if (!request.getParameter("id").equals("")
+                && request.getParameter("username") != null
+                && request.getParameter("password") != null) {
+
+            Integer id = Integer.valueOf(request.getParameter("id"));
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            userService.insertUser(id, username, password);
+
+            response.setCharacterEncoding("utf-8");
+            PrintWriter printWriter = null;
+            try {
+                printWriter = response.getWriter();
+                printWriter.print("<script>alert('添加成功'); window.location='http://localhost:8080/user/insertUserJSP.do'</script>");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            printWriter.flush();
+            printWriter.close();
+
+
+        }
+        System.out.println("nihoaaaaaaa");
+        return "/user/insert_user";
     }
 
-//    @RequestMapping("findById")
-//    public User findById(Integer id) {
-//        System.out.println("...");
-//        List<User> users = userService.findAll();
-//        return null;
-//    }
+    @RequestMapping("insertUserJSP")
+    public String insertUserJSP() {
+        return "/user/insert_user";
+    }
+
+    @RequestMapping("deleteUser")
+    public String deleteUser(HttpServletRequest request) {
+        if (request.getParameter("id") != null) {
+            Integer id = Integer.valueOf(request.getParameter("id"));
+            userService.deleteUser(id);
+        }
+        return "/user/insert_user";
+    }
+
 
     @RequestMapping("findAllUser")
     @ResponseBody
@@ -48,7 +82,6 @@ public class UserController extends BaseController<User> {
             map.put("code", 0);
             map.put("msg", "");
             map.put("data", users);
-//            logger.error(map.toString());
             return map.toString();
         } else {
             logger.error("size == null");
@@ -56,18 +89,34 @@ public class UserController extends BaseController<User> {
         return null;
     }
 
-    @RequestMapping(MANAGE)
-    public String manage() {
-        return MANAGE_PAGE;
-    }
 
-    @RequestMapping(INFO)
-    public String info() {
-        return INFO_PAGE;
-    }
+//    @RequestMapping("login")
+//    public String login() {
+//        System.out.println("nihao");
+//        return "/user/update";
+//    }
 
-    @RequestMapping(EDIT)
-    public String edit() {
-        return EDIT_PAGE;
-    }
+
+//    @RequestMapping("findById")
+//    public User findById(Integer id) {
+//        System.out.println("...");
+//        List<User> users = userService.findAll();
+//        return null;
+//    }
+
+
+//    @RequestMapping(MANAGE)
+//    public String manage() {
+//        return MANAGE_PAGE;
+//    }
+//
+//    @RequestMapping(INFO)
+//    public String info() {
+//        return INFO_PAGE;
+//    }
+//
+//    @RequestMapping(EDIT)
+//    public String edit() {
+//        return EDIT_PAGE;
+//    }
 }

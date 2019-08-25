@@ -9,5 +9,5 @@ public abstract class BaseServiceImpl<T> implements IBaseService<T>{
     //统一管理dao
 
     @Autowired
-    protected UserMapper userMapper;
+    public UserMapper userMapper;
 }

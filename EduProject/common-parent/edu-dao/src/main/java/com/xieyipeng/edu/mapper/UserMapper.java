@@ -10,4 +10,9 @@ import java.util.Map;
 
 public interface UserMapper extends BaseMapper<User> {
     List<User> findAll();
+
+    void insertUser(@Param("param") Map map);
+
+    void deleteUser(@Param("param") Map map);
+
 }
