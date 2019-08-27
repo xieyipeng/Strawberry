@@ -120,6 +120,12 @@
 
         <!-- TODO: 2、添加service依赖-->
 
+        <dependency>
+            <artifactId>IntelligentStrawberry-service</artifactId>
+            <groupId>com.xieyipeng.IntelligentStrawberry</groupId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
 
         <!-- TODO: 3、添加mybatis-spring的整合依赖-->
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
