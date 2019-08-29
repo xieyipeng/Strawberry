@@ -21,7 +21,7 @@ public class UserController {
     @ResponseBody
     public String findAll() {
         List<User> users = userService.findAll();
-        if (users != null) {
+        if (users.size() != 0) {
             /**
              for (int i = 0; i < users.size(); i++) {
              System.out.println(users.get(i));

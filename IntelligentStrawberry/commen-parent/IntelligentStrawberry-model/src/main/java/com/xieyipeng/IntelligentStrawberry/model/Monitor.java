@@ -1,12 +1,23 @@
 package com.xieyipeng.IntelligentStrawberry.model;
 
+import java.sql.Timestamp;
+
 public class Monitor {
     Integer monitor_id;
     Integer monitor_StrawberryFram_id;
     String monitor_temperature;
     String monitor_humidity;
     String monitor_sensor_id;
-    String monitor_time;
+    Timestamp monitor_time;
+
+    public Monitor(Integer monitor_id, Integer monitor_StrawberryFram_id, String monitor_temperature, String monitor_humidity, String monitor_sensor_id, Timestamp monitor_time) {
+        this.monitor_id = monitor_id;
+        this.monitor_StrawberryFram_id = monitor_StrawberryFram_id;
+        this.monitor_temperature = monitor_temperature;
+        this.monitor_humidity = monitor_humidity;
+        this.monitor_sensor_id = monitor_sensor_id;
+        this.monitor_time = monitor_time;
+    }
 
     @Override
     public String toString() {
@@ -16,17 +27,8 @@ public class Monitor {
                 ", monitor_temperature='" + monitor_temperature + '\'' +
                 ", monitor_humidity='" + monitor_humidity + '\'' +
                 ", monitor_sensor_id='" + monitor_sensor_id + '\'' +
-                ", monitor_time='" + monitor_time + '\'' +
+                ", monitor_time=" + monitor_time +
                 '}';
-    }
-
-    public Monitor(Integer monitor_id, Integer monitor_StrawberryFram_id, String monitor_temperature, String monitor_humidity, String monitor_sensor_id, String monitor_time) {
-        this.monitor_id = monitor_id;
-        this.monitor_StrawberryFram_id = monitor_StrawberryFram_id;
-        this.monitor_temperature = monitor_temperature;
-        this.monitor_humidity = monitor_humidity;
-        this.monitor_sensor_id = monitor_sensor_id;
-        this.monitor_time = monitor_time;
     }
 
     public Integer getMonitor_id() {
@@ -69,11 +71,11 @@ public class Monitor {
         this.monitor_sensor_id = monitor_sensor_id;
     }
 
-    public String getMonitor_time() {
+    public Timestamp getMonitor_time() {
         return monitor_time;
     }
 
-    public void setMonitor_time(String monitor_time) {
+    public void setMonitor_time(Timestamp monitor_time) {
         this.monitor_time = monitor_time;
     }
 }

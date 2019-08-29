@@ -7,4 +7,6 @@
         VALUES(#{param.monitor_StrawberryFram_id}, #{param.monitor_temperature}, #{param.monitor_humidity}, #{param.monitor_sensor_id})
     </insert>
 
+    <select id="findAll" resultType="com.xieyipeng.IntelligentStrawberry.model.Monitor">SELECT * FROM monitor</select>
+
 </mapper>
