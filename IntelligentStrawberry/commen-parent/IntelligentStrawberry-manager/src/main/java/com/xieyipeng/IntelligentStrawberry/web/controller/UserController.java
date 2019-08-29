@@ -17,13 +17,6 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    //测试springmvc -- 输出： ...
-    @RequestMapping("login")
-    public String login() {
-        System.out.println("...");
-        return null;
-    }
-
     @RequestMapping("findAll")
     @ResponseBody
     public String findAll() {

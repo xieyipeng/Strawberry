@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xieyipeng.IntelligentStrawberry.mapper.MonitorMapper">
+
+    <insert id="insertMonitor" parameterType="java.util.Map">
+        INSERT INTO monitor (monitor_StrawberryFram_id,monitor_temperature,monitor_humidity,monitor_sensor_id)
+        VALUES(#{param.monitor_StrawberryFram_id}, #{param.monitor_temperature}, #{param.monitor_humidity}, #{param.monitor_sensor_id})
+    </insert>
+
+</mapper>

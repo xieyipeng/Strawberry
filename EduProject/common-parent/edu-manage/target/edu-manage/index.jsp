@@ -240,7 +240,7 @@
                     }
                 })
             }
-        }
+        };
 
         $('.chu.layui-btn').on('click', function () {
             var type = $(this).data('type');
