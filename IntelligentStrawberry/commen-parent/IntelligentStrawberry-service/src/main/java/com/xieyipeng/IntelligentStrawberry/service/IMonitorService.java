@@ -9,4 +9,10 @@ public interface IMonitorService {
     public void insertMonitor(Map map);
 
     public List<Monitor> findAll();
+
+    public List<Monitor> findRecently();
+
+    public List<Monitor> findRecentlyOne();
+
+
 }

@@ -9,4 +9,12 @@
 
     <select id="findAll" resultType="com.xieyipeng.IntelligentStrawberry.model.Monitor">SELECT * FROM monitor</select>
 
+    <select id="findRecently" resultType="com.xieyipeng.IntelligentStrawberry.model.Monitor">
+        SELECT * FROM monitor ORDER BY monitor.monitor_time DESC LIMIT 20;
+    </select>
+
+    <select id="findRecentlyOne" resultType="com.xieyipeng.IntelligentStrawberry.model.Monitor">
+        SELECT * FROM monitor ORDER BY monitor.monitor_time DESC LIMIT 1;
+    </select>
+
 </mapper>

@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/layui/css/layui.css">
 
     <script src="${pageContext.request.contextPath}/static/layui/layui.js"></script>
+    <script>
+
+
+    </script>
 
 </head>
 <body class="layui-layout-body">
@@ -22,7 +26,7 @@
         <div class="layui-logo">智能草莓园</div>
         <!-- 头部区域 -->
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="">控制台</a></li>
+            <li class="layui-nav-item"><a href="../../../index.jsp">首页</a></li>
             <li class="layui-nav-item"><a href="">商品管理</a></li>
             <li class="layui-nav-item"><a href="">用户</a></li>
             <li class="layui-nav-item">
@@ -54,12 +58,13 @@
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
                 <li class="layui-nav-item"><a href="../../../index.jsp">系统概览</a></li>
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="">所有信息</a>
+                    <a class="" href="javascript:">所有信息</a>
                     <dl class="layui-nav-child">
                         <dd><a href="${pageContext.request.contextPath}/page-jump/to-admin-home.do">管理员表</a></dd>
-                        <dd><a href="">传感器表</a></dd>
                         <dd><a href="">草莓园表</a></dd>
                     </dl>
+                </li>
+                <li id="topological-graph" class="layui-nav-item"><a href="http://192.168.0.1/Strawberry.html">拓扑图</a>
                 </li>
             </ul>
         </div>

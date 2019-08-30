@@ -26,4 +26,14 @@ public class MonitorServiceImpl implements IMonitorService {
     public List<Monitor> findAll() {
         return monitorMapper.findAll();
     }
+
+    @Override
+    public List<Monitor> findRecently() {
+        return monitorMapper.findRecently();
+    }
+
+    @Override
+    public List<Monitor> findRecentlyOne() {
+        return monitorMapper.findRecentlyOne();
+    }
 }

@@ -10,6 +10,10 @@
     String findAllAdmin = "\'http://localhost:8080/admin/findAllAdmin.do\'";
     String insertUserJSP = "\'http://localhost:8080/user/insertUserJSP.do\'";
 %>
+<script type="text/html" id="table-bar">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
 <jsp:include page="../common/top.jsp"/>
 
 <!-- 内容主体区域 -->
@@ -25,26 +29,15 @@
 
     <table class="layui-hide" id="admin-table" lay-filter="test"></table>
 
-
-    <script type="text/html" id="table-bar">
-        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-    </script>
-
 </div>
 
 <script>
-    layui.use(['layer', 'table', 'carousel', 'upload', 'element', 'slider'], function () {
+    layui.use(['layer', 'table', 'element'], function () {
         var layer = layui.layer
             , table = layui.table //表格
-            , carousel = layui.carousel //轮播
-            , upload = layui.upload //上传
-            , element = layui.element //元素操作
-            , slider = layui.slider; //滑块
+            , element = layui.element;//元素操作
 
-
-        // 向世界问个好
-        layer.msg('Hello World');
+        layer.msg("停止采集传感器数据！");
 
         //监听Tab切换
         element.on('tab(admin-table)', function (data) {
@@ -150,15 +143,7 @@
                 })
             }
         });
-
-
-
-        // $(document).on('click','#page-index',function () {
-        //     alert("nihao")
-        // })
-
-    })
-    ;
+    });
 
 </script>
 
