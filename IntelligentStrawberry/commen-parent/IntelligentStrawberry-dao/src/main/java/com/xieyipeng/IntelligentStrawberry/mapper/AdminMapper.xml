@@ -4,4 +4,15 @@
 
     <select id="findAllAdmin" resultType="com.xieyipeng.IntelligentStrawberry.model.Admin">SELECT * FROM admin</select>
 
+    <insert id="insertAdmin" parameterType="java.util.Map">
+        INSERT INTO admin (admin_username,admin_password,admin_telephone)
+        VALUES(#{param.admin_username}, #{param.admin_password}, #{param.admin_telephone})
+    </insert>
+
+<!--    deleteAdmin-->
+
+    <delete id="deleteAdmin" parameterType="java.util.Map">
+        DELETE FROM admin WHERE admin_id=#{param.admin_id}
+    </delete>
+
 </mapper>

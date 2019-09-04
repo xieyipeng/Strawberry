@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xieyipeng.IntelligentStrawberry.mapper.StrawberryFramMapper">
+
+
+    <insert id="insertFarm" parameterType="java.util.Map">
+        INSERT INTO StrawberryFram (StrawberryFram_farm_id,StrawberryFram_price,StrawberryFram_address,StrawberryFram_variety_of_strawberry,StrawberryFram_picture)
+        VALUES(#{param.StrawberryFram_farm_id},#{param.StrawberryFram_price},#{param.StrawberryFram_address},#{param.StrawberryFram_variety_of_strawberry},#{param.StrawberryFram_picture})
+    </insert>
+
+    <select id="select_i" parameterType="java.util.Map" resultType="com.xieyipeng.IntelligentStrawberry.model.StrawberryFram">
+        select * from strawberryfram where StrawberryFram_farm_id=#{param.StrawberryFram_farm_id}
+    </select>
+
+
+</mapper>

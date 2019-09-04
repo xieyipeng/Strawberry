@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -20,5 +21,15 @@ public class AdminServiceImpl implements IAdminService {
     @Override
     public List<Admin> findAllAdmin() {
         return adminMapper.findAllAdmin();
+    }
+
+    @Override
+    public void insertAdmin(Map map) {
+        adminMapper.insertAdmin(map);
+    }
+
+    @Override
+    public void deleteAdmin(Map map) {
+        adminMapper.deleteAdmin(map);
     }
 }

@@ -58,7 +58,7 @@
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
                 <li class="layui-nav-item"><a href="../../../index.jsp">系统概览</a></li>
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:">所有信息</a>
+                    <a class="" href="javascript:;">所有信息</a>
                     <dl class="layui-nav-child">
                         <dd><a href="${pageContext.request.contextPath}/page-jump/to-admin-home.do">管理员表</a></dd>
                         <dd><a href="">草莓园表</a></dd>

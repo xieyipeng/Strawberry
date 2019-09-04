@@ -1,4 +1,4 @@
-package com.xieyipeng.IntelligentStrawberry.model;
+package com.xieyipeng.IntelligentStrawberry.model.tools;
 
 public class LoadMonitor {
     Integer monitor_id;

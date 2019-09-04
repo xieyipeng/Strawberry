@@ -8,7 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String findAllAdmin = "\'http://localhost:8080/admin/findAllAdmin.do\'";
-    String insertUserJSP = "\'http://localhost:8080/user/insertUserJSP.do\'";
+    String insertAdminJSP = "\'http://localhost:8080/admin/insert-admin-jsp.do\'";
+    String deleteAdmin = "\'http://localhost:8080/admin/delete-admin.do\'";
+    String updateAdmin = "\'http://localhost:8080/admin/update-admin.do\'";
 %>
 <script type="text/html" id="table-bar">
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
@@ -27,17 +29,18 @@
         <button class="layui-btn" data-type="reload">搜索</button>
     </div>
 
-    <table class="layui-hide" id="admin-table" lay-filter="test"></table>
+    <table class="layui-hide" id="admin-table" lay-filter="test3"></table>
 
 </div>
 
+<script src="${pageContext.request.contextPath}/assets/Scripts/jquery-1.7.2.min.js"></script>
 <script>
     layui.use(['layer', 'table', 'element'], function () {
         var layer = layui.layer
             , table = layui.table //表格
             , element = layui.element;//元素操作
 
-        layer.msg("停止采集传感器数据！");
+        layer.msg("已停止采集感器数据！");
 
         //监听Tab切换
         element.on('tab(admin-table)', function (data) {
@@ -59,16 +62,47 @@
             , defaultToolbar: ''
             , cols: [[
                 {type: 'checkbox', fixed: 'left'}
-                , {field: 'admin_id', title: 'ID', sort: true, fixed: 'left'}
-                , {field: 'admin_username', title: '姓名'}
-                , {field: 'admin_password', title: '密码'}
-                , {field: 'admin_telephone', title: '联系电话'}
+                , {id: 'test3', field: 'admin_id', title: 'ID', sort: true, fixed: 'left'}
+                , {id: 'test3', edit: 'text', field: 'admin_username', title: '姓名'}
+                , {id: 'test3', edit: 'text', field: 'admin_password', title: '密码'}
+                , {id: 'test3', edit: 'text', field: 'admin_telephone', title: '联系电话'}
                 , {fixed: 'right', width: 165, align: 'center', toolbar: '#table-bar'}
             ]]
         });
 
+        //监听单元格编辑
+        table.on('edit(test3)', function (obj) {
+            var value = obj.value //得到修改后的值
+                , data = obj.data //得到所在行所有键值
+                , field = obj.field; //得到字段
+            // var my_data = "{\"admin_id\":" + data.admin_id + "+,\"filed\":\"" + field + "\",\"value\":\"" + value + "\"}";
+
+            var my_data = {
+                "admin_id": data.admin_id,
+                "filed": field,
+                "value": value
+            };
+
+            $.ajax({
+                url:<%=updateAdmin%>,
+                type: 'post',
+                data: my_data,
+                dataType: "json",
+                success: function (data) {
+                    if (data === "success") {
+                        layer.msg("编辑成功")
+                    } else {
+                        layer.msg("编辑失败")
+                    }
+                }
+            });
+
+
+            // layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
+        });
+
         //监听头工具栏事件
-        table.on('toolbar(test)', function (obj) {
+        table.on('toolbar(test3)', function (obj) {
             var checkStatus = table.checkStatus(obj.config.id)
                 , data = checkStatus.data; //获取选中的数据
             switch (obj.event) {
@@ -76,71 +110,55 @@
                     layer.open({
                         title: '添加管理员',
                         type: 2,
-                        // area: ['500px', '500px'],
                         area: '400px',
-                        content: <%=insertUserJSP%>,//这是 URL，直接发送的这个请求controller会接受到并返回userList页面。也就是弹出来的页面
-                        // btn : ['确定'] ,
-                        yes: function (index, layero) {
-                            layer.close(index);
+                        content: <%=insertAdminJSP%>,
+                        /**
+                         * 添加完毕，刷新列表显示
+                         * 重新加载 windows
+                         */
+                        end: function () {
+                            window.location.reload();
                         }
 
                     });
-                    // layer.msg('添加');
+                    layer.msg("添加成功");
                     break;
 
                 case 'update':
-                    if (data.length === 0) {
-                        layer.msg('请选择一行');
-                    } else if (data.length > 1) {
-                        layer.msg('只能同时编辑一个');
-                    } else {
-                        layer.alert('编辑 [id]：' + checkStatus.data[0].id);
-                    }
+                    layer.msg("请直接点击单元格进行编辑");
                     break;
                 case 'delete':
-                    if (data.length === 0) {
-                        layer.msg('请选择一行');
-                    } else {
-                        layer.msg('删除');
-                    }
+                    layer.msg("请直接点击单元格右侧进行删除");
                     break;
             }
         });
 
-
         //监听行工具事件
-        table.on('tool(test)', function (obj) { //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+        table.on('tool(test3)', function (obj) { //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
             var data = obj.data //获得当前行数据
                 , layEvent = obj.event; //获得 lay-event 对应的值
 
             if (layEvent === 'del') {
                 layer.confirm('真的删除行么', function (index) {
-                    obj.del(); //删除对应行（tr）的DOM结构
                     layer.close(index);
-                    //向服务端发送删除指令
                     $.ajax({
-                        url: '${ctx}/user/delete/',
+                        url:<%=deleteAdmin%>,
                         type: 'post',
                         data: data,
                         success: function (data) {
-                            var msg = data.msg;
-                            layer.msg(msg);
+                            if (data === "success") {
+                                layer.msg("删除成功")
+                            } else {
+                                layer.msg("删除失败")
+                            }
                         }
                     });
+                    obj.del(); //删除对应行（tr）的DOM结构
+
                 });
             } else if (layEvent === 'edit') {
-                $.ajax({
-                    url: '${ctx}/user/update',
-                    type: 'post',
-                    data: data,
-                    success: function (data1) {
-                        if (data1 == '1') {
-                            layer.msg('编辑成功');
-                        } else {
-                            layer.msg('编辑失败');
-                        }
-                    }
-                })
+                layer.msg("请直接点击单元格进行编辑")
+
             }
         });
     });

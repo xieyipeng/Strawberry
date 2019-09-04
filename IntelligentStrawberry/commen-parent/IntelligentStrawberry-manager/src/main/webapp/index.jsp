@@ -12,6 +12,7 @@
     String findAllMonitor = "\'http://localhost:8080/monitor/findAll.do\'";
     String findRecently = "\'http://localhost:8080/monitor/findRecently.do\'";
     String findRecentlyOne = "\'http://localhost:8080/monitor/findRecentlyOne.do\'";
+
 %>
 
 

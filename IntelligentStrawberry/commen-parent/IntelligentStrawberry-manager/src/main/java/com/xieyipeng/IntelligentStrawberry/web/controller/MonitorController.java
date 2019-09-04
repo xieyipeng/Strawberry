@@ -1,7 +1,7 @@
 package com.xieyipeng.IntelligentStrawberry.web.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.xieyipeng.IntelligentStrawberry.model.LoadMonitor;
+import com.xieyipeng.IntelligentStrawberry.model.tools.LoadMonitor;
 import com.xieyipeng.IntelligentStrawberry.model.Monitor;
 import com.xieyipeng.IntelligentStrawberry.service.IMonitorService;
 import org.json.JSONArray;
@@ -9,14 +9,15 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,7 +50,7 @@ public class MonitorController {
             }
             in.close();
 //            System.out.println(stringBuilder.toString());
-            Integer monitor_StrawberryFram_id = 1;
+            Integer monitor_StrawberryFram_id = 2;
             String monitor_temperature = "";
             String monitor_humidity = "";
             String monitor_sensor_id = "";
@@ -87,7 +88,7 @@ public class MonitorController {
     @ResponseBody
     public String findAll() {
         List<Monitor> monitors = monitorService.findAll();
-        List<LoadMonitor> loadMonitors =new ArrayList<>();
+        List<LoadMonitor> loadMonitors = new ArrayList<>();
         if (monitors.size() != 0) {
             DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             for (Monitor monitor : monitors) {
@@ -111,7 +112,7 @@ public class MonitorController {
     @ResponseBody
     public String findRecently() {
         List<Monitor> monitors = monitorService.findRecently();
-        List<LoadMonitor> loadMonitors =new ArrayList<>();
+        List<LoadMonitor> loadMonitors = new ArrayList<>();
         if (monitors.size() != 0) {
             DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             for (Monitor monitor : monitors) {
@@ -156,4 +157,48 @@ public class MonitorController {
 //        return JSON.toJSONString(monitors);
         return null;
     }
+
+
+//    /**
+//     * 获取数据
+//     *
+//     * @param request request - 上传方式对应python工程下/ssm_post_data;
+//     * @return success
+//     */
+//    @RequestMapping("uploadData")
+//    @ResponseBody
+//    public String uploadData(HttpServletRequest request,@RequestParam("app_id") String app_id) {
+//        System.out.println("app_id: "+app_id);
+//        return "success";
+//    }
+
+
+//    /**
+//     * 接收文件（图片）
+//     *
+//     * @param request request
+//     * @return if success
+//     */
+//    @RequestMapping("uploadFile")
+//    @ResponseBody
+//    public String uploadFiled(HttpServletRequest request, HttpServletResponse response
+//            , @RequestParam("file") MultipartFile file, @RequestParam("app_id") String app_id) {
+//        System.out.println(file.getName());
+//        return "success";
+//    }
+
+
+//    /**
+//     * 接收文件（图片）
+//     *
+//     * @param request request
+//     * @return if success
+//     */
+//    @RequestMapping("uploadFile")
+//    @ResponseBody
+//    public String uploadFiled(HttpServletRequest request,@RequestParam("file") MultipartFile file) {
+//        System.out.println(file.getOriginalFilename());
+//
+//        return "success";
+//    }
 }
