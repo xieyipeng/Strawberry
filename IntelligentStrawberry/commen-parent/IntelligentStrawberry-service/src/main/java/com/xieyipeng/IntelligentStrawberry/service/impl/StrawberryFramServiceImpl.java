@@ -27,4 +27,9 @@ public class StrawberryFramServiceImpl implements IStrawberryFramService {
     public List<StrawberryFram> select_i(Map map) {
         return strawberryFramMapper.select_i(map);
     }
+
+    @Override
+    public List<StrawberryFram> findAll() {
+        return strawberryFramMapper.findAll();
+    }
 }

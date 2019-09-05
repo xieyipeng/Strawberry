@@ -32,4 +32,19 @@ public class AdminServiceImpl implements IAdminService {
     public void deleteAdmin(Map map) {
         adminMapper.deleteAdmin(map);
     }
+
+    @Override
+    public void updateAdminName(Map map) {
+        adminMapper.updateAdminName(map);
+    }
+
+    @Override
+    public void updateAdminPassword(Map map) {
+        adminMapper.updateAdminPassword(map);
+    }
+
+    @Override
+    public void updateAdminTelephone(Map map) {
+        adminMapper.updateAdminTelephone(map);
+    }
 }

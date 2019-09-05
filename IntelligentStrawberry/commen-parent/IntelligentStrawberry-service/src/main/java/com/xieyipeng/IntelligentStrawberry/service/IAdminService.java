@@ -6,9 +6,15 @@ import java.util.List;
 import java.util.Map;
 
 public interface IAdminService {
-    public List<Admin> findAllAdmin();
+    List<Admin> findAllAdmin();
 
-    public void insertAdmin(Map map);
+    void insertAdmin(Map map);
 
-    public void deleteAdmin(Map map);
+    void deleteAdmin(Map map);
+
+    void updateAdminName(Map map);
+
+    void updateAdminPassword(Map map);
+
+    void updateAdminTelephone(Map map);
 }

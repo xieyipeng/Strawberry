@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.xieyipeng.IntelligentStrawberry.model.tools.LoadMonitor;
 import com.xieyipeng.IntelligentStrawberry.model.Monitor;
 import com.xieyipeng.IntelligentStrawberry.service.IMonitorService;
+import com.xieyipeng.IntelligentStrawberry.web.controller.tools.GetPostUtil;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.script.Invocable;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.DateFormat;
@@ -158,6 +164,25 @@ public class MonitorController {
         return null;
     }
 
+
+    @RequestMapping("androidRecently")
+    @ResponseBody
+    public String androidRecently() {
+        List<LoadMonitor> monitors = monitorService.androidRecently();
+        return JSON.toJSONString(monitors);
+    }
+
+    @RequestMapping("get-v")
+    @ResponseBody
+    public String getV(@RequestParam("v")Integer v) {
+        try {
+            GetPostUtil.sendGetRequest("http://192.168.0.1/cgi-bin/send_node.cgi?=type=11%26data="+v);
+        }catch (Exception e){
+            e.printStackTrace();
+            return "failed";
+        }
+        return "success";
+    }
 
 //    /**
 //     * 获取数据

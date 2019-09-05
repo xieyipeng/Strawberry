@@ -9,8 +9,11 @@
     </insert>
 
     <select id="select_i" parameterType="java.util.Map" resultType="com.xieyipeng.IntelligentStrawberry.model.StrawberryFram">
-        select * from strawberryfram where StrawberryFram_farm_id=#{param.StrawberryFram_farm_id}
+        select * from strawberryfram where StrawberryFram_farm_id=#{param.StrawberryFram_farm_id} order by StrawberryFram_id desc
     </select>
 
+    <select id="findAll" resultType="com.xieyipeng.IntelligentStrawberry.model.StrawberryFram">
+        select * from strawberryfram
+    </select>
 
 </mapper>

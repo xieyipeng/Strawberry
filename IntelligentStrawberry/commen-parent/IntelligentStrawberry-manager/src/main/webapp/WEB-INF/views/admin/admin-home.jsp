@@ -42,12 +42,12 @@
 
         layer.msg("已停止采集感器数据！");
 
-        //监听Tab切换
-        element.on('tab(admin-table)', function (data) {
-            layer.tips('切换了 ' + data.index + '：' + this.innerHTML, this, {
-                tips: 1
-            });
-        });
+        // //监听Tab切换
+        // element.on('tab(admin-table)', function (data) {
+        //     layer.tips('切换了 ' + data.index + '：' + this.innerHTML, this, {
+        //         tips: 1
+        //     });
+        // });
 
         //执行一个 table 实例
         table.render({

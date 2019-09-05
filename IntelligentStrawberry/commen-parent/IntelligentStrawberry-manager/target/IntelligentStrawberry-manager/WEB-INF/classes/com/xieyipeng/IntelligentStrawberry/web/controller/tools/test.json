@@ -1,5 +1,37 @@
 {
-  "admin_id": 1,
-  "filed": "admin_telephone",
-  "value": "1553683902"
+  "msg": "",
+  "code": 0,
+  "data": [
+    {
+      "admin_username": "xieyipeng",
+      "admin_telephone": "15536839029",
+      "admin_id": 1,
+      "admin_password": "123456"
+    },
+    {
+      "admin_username": "wangyifan",
+      "admin_telephone": "13536839029",
+      "admin_id": 2,
+      "admin_password": "123456"
+    },
+    {
+      "admin_username": "zengtiantian",
+      "admin_telephone": "15035081949",
+      "admin_id": 3,
+      "admin_password": "123456"
+    },
+    {
+      "admin_username": "xuefuren",
+      "admin_telephone": "15535086636",
+      "admin_id": 4,
+      "admin_password": "123456"
+    },
+    {
+      "admin_username": "ztt",
+      "admin_telephone": "15035081948",
+      "admin_id": 5,
+      "admin_password": "123"
+    }
+  ],
+  "count": 5
 }

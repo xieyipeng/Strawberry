@@ -4,10 +4,10 @@ import java.sql.Timestamp;
 
 public class Monitor {
     Integer monitor_id;
-    Integer monitor_StrawberryFram_id;
-    String monitor_temperature;
-    String monitor_humidity;
     String monitor_sensor_id;
+    String monitor_humidity;
+    String monitor_temperature;
+    Integer monitor_StrawberryFram_id;
     Timestamp monitor_time;
 
     public Monitor(Integer monitor_id, Integer monitor_StrawberryFram_id, String monitor_temperature, String monitor_humidity, String monitor_sensor_id, Timestamp monitor_time) {

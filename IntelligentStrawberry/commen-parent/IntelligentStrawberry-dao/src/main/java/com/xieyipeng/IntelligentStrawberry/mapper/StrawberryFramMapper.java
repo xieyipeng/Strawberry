@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 public interface StrawberryFramMapper {
-    void insertFarm(@Param("param")Map map);
+    void insertFarm(@Param("param") Map map);
 
-    List<StrawberryFram> select_i(@Param("param")Map map);
+    List<StrawberryFram> select_i(@Param("param") Map map);
+
+    List<StrawberryFram> findAll();
 }

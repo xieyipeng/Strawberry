@@ -2,11 +2,20 @@ package com.xieyipeng.IntelligentStrawberry.model.tools;
 
 public class LoadMonitor {
     Integer monitor_id;
-    Integer monitor_StrawberryFram_id;
-    String monitor_temperature;
-    String monitor_humidity;
     String monitor_sensor_id;
+    String monitor_humidity;
+    String monitor_temperature;
+    Integer monitor_StrawberryFram_id;
     String monitor_time;
+
+    public LoadMonitor(Integer monitor_id, String monitor_sensor_id, String monitor_humidity, String monitor_temperature, Integer monitor_StrawberryFram_id, String monitor_time) {
+        this.monitor_id = monitor_id;
+        this.monitor_sensor_id = monitor_sensor_id;
+        this.monitor_humidity = monitor_humidity;
+        this.monitor_temperature = monitor_temperature;
+        this.monitor_StrawberryFram_id = monitor_StrawberryFram_id;
+        this.monitor_time = monitor_time;
+    }
 
     @Override
     public String toString() {

@@ -9,10 +9,23 @@
         VALUES(#{param.admin_username}, #{param.admin_password}, #{param.admin_telephone})
     </insert>
 
-<!--    deleteAdmin-->
+    <!--    deleteAdmin-->
 
     <delete id="deleteAdmin" parameterType="java.util.Map">
         DELETE FROM admin WHERE admin_id=#{param.admin_id}
     </delete>
+
+    <update id="updateAdminName" parameterType="java.util.Map">
+        update admin set admin_username =#{param.value} where admin_id = #{param.admin_id}
+    </update>
+
+    <update id="updateAdminPassword" parameterType="java.util.Map">
+        update admin set admin_password =#{param.value} where admin_id = #{param.admin_id}
+    </update>
+
+    <update id="updateAdminTelephone" parameterType="java.util.Map">
+        update admin set admin_telephone =#{param.value} where admin_id = #{param.admin_id}
+    </update>
+
 
 </mapper>

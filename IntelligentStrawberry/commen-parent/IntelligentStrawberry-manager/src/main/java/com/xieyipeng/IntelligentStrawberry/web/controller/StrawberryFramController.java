@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.xieyipeng.IntelligentStrawberry.model.StrawberryFram;
 import com.xieyipeng.IntelligentStrawberry.service.IStrawberryFramService;
 import com.xieyipeng.IntelligentStrawberry.web.controller.tools.Constant;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,5 +69,29 @@ public class StrawberryFramController {
         }
         System.out.println(JSON.toJSONString(strawberryFrams));
         return JSON.toJSONString(strawberryFrams);
+    }
+
+
+    @ResponseBody
+    @RequestMapping(value = "findAll", produces = "text/html;charset=UTF-8")
+    public String findAll(){
+        List<StrawberryFram> strawberryFrams=strawberryFramService.findAll();
+        System.out.println(JSON.toJSONString(strawberryFrams));
+        if (strawberryFrams.size() != 0) {
+            /**
+             for (int i = 0; i < users.size(); i++) {
+             System.out.println(users.get(i));
+             }
+             **/
+            JSONObject map = new JSONObject(true);
+            map.put("count", strawberryFrams.size());
+            map.put("code", 0);
+            map.put("msg", "");
+            map.put("data", strawberryFrams);
+            return map.toString();
+        } else {
+            System.out.println("user size == null!");
+        }
+        return null;
     }
 }

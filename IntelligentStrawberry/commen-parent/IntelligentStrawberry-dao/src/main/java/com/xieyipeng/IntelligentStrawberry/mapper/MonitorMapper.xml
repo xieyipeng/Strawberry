@@ -17,4 +17,33 @@
         SELECT * FROM monitor ORDER BY monitor.monitor_time DESC LIMIT 1;
     </select>
 
+    <select id="androidRecently" resultType="com.xieyipeng.IntelligentStrawberry.model.tools.LoadMonitor">
+        SELECT
+	b.monitor_id,
+	b.monitor_sensor_id,
+	b.monitor_humidity,
+	b.monitor_temperature,
+	b.monitor_StrawberryFram_id,
+	SUBSTRING_INDEX(
+		GROUP_CONCAT(
+			monitor_time
+			ORDER BY
+				b.monitor_time DESC
+		),
+		',',
+		1
+	) AS monitor_time
+FROM
+	(
+		SELECT
+			*
+		FROM
+			monitor
+		ORDER BY
+			monitor.monitor_StrawberryFram_id
+	) b
+GROUP BY
+	b.monitor_StrawberryFram_id
+    </select>
+
 </mapper>

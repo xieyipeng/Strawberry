@@ -1,0 +1,20 @@
+[
+  [
+    {
+      "monitor_StrawberryFram_id": 1,
+      "monitor_humidity": "27.76",
+      "monitor_id": 1,
+      "monitor_sensor_id": "13635305004B1200",
+      "monitor_temperature": "30.48",
+      "monitor_time": "2019-08-30 17:47:56.053"
+    },
+    {
+      "monitor_StrawberryFram_id": 2,
+      "monitor_humidity": "32.060001",
+      "monitor_id": 141,
+      "monitor_sensor_id": "A6625305004B1200",
+      "monitor_temperature": "31.959999",
+      "monitor_time": "2019-09-04 11:42:34.176"
+    }
+  ]
+]

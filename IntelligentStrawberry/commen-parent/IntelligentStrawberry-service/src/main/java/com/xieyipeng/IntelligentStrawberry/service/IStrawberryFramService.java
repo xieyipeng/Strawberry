@@ -7,8 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 public interface IStrawberryFramService {
-    public void insertFarm(Map map);
+    void insertFarm(Map map);
 
-    public List<StrawberryFram> select_i(Map map);
+    List<StrawberryFram> select_i(Map map);
+
+    List<StrawberryFram> findAll();
 
 }

@@ -12,4 +12,10 @@ public interface AdminMapper {
     void insertAdmin(@Param("param") Map map);
 
     void deleteAdmin(@Param("param") Map map);
+
+    void updateAdminName(@Param("param") Map map);
+
+    void updateAdminPassword(@Param("param") Map map);
+
+    void updateAdminTelephone(@Param("param") Map map);
 }

@@ -65,9 +65,10 @@ public class AdminController {
 
     /**
      * 更新admin数据
+     *
      * @param admin_id id
-     * @param filed 更改的数据列名称
-     * @param value 更改后的值
+     * @param filed    更改的数据列名称
+     * @param value    更改后的值
      * @return success/failed
      */
     @RequestMapping("update-admin")
@@ -76,13 +77,29 @@ public class AdminController {
             , @RequestParam("filed") String filed
             , @RequestParam("value") String value) {
         System.out.println(admin_id + " " + filed + " " + value);
+        try {
+            Map<String, Object> param = new HashMap<>();
+            param.put("admin_id", admin_id);
+            param.put("value", value);
 
-
-
-
-
-
-        return "success";
+            switch (filed) {
+                case "admin_username":
+                    adminService.updateAdminName(param);
+                    break;
+                case "admin_password":
+                    adminService.updateAdminPassword(param);
+                    break;
+                case "admin_telephone":
+                    adminService.updateAdminTelephone(param);
+                    break;
+                default:
+                    break;
+            }
+            return "success";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "failed";
     }
 
     @RequestMapping("delete-admin")

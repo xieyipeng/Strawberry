@@ -2,6 +2,7 @@ package com.xieyipeng.IntelligentStrawberry.service.impl;
 
 import com.xieyipeng.IntelligentStrawberry.mapper.MonitorMapper;
 import com.xieyipeng.IntelligentStrawberry.model.Monitor;
+import com.xieyipeng.IntelligentStrawberry.model.tools.LoadMonitor;
 import com.xieyipeng.IntelligentStrawberry.service.IMonitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,5 +36,10 @@ public class MonitorServiceImpl implements IMonitorService {
     @Override
     public List<Monitor> findRecentlyOne() {
         return monitorMapper.findRecentlyOne();
+    }
+
+    @Override
+    public List<LoadMonitor> androidRecently() {
+        return monitorMapper.androidRecently();
     }
 }

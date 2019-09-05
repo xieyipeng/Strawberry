@@ -61,10 +61,25 @@
                     <a class="" href="javascript:;">所有信息</a>
                     <dl class="layui-nav-child">
                         <dd><a href="${pageContext.request.contextPath}/page-jump/to-admin-home.do">管理员表</a></dd>
-                        <dd><a href="">草莓园表</a></dd>
+                        <dd><a href="${pageContext.request.contextPath}/page-jump/to-farm-home.do">草莓园表</a></dd>
                     </dl>
                 </li>
-                <li id="topological-graph" class="layui-nav-item"><a href="http://192.168.0.1/Strawberry.html">拓扑图</a>
+
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">照片展示</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="${pageContext.request.contextPath}/page-jump/to-gallery1.do">一号草莓园</a></dd>
+                        <dd><a href="${pageContext.request.contextPath}/page-jump/to-gallery2.do">二号草莓园</a></dd>
+                        <dd><a href="${pageContext.request.contextPath}/page-jump/to-gallery3.do">三号草莓园</a></dd>
+                        <dd><a href="${pageContext.request.contextPath}/page-jump/to-gallery4.do">四号草莓园</a></dd>
+                        <dd><a href="${pageContext.request.contextPath}/page-jump/to-gallery5.do">五号草莓园</a></dd>
+                        <dd><a href="${pageContext.request.contextPath}/page-jump/to-gallery6.do">六号草莓园</a></dd>
+                    </dl>
+                </li>
+
+                <li id="topological-graph" class="layui-nav-item"><a href="http://192.168.0.1/strawberry.html">拓扑图</a>
+                <li id="control" class="layui-nav-item"><a href="${pageContext.request.contextPath}/page-jump/to-control.do">控制</a>
+
                 </li>
             </ul>
         </div>
