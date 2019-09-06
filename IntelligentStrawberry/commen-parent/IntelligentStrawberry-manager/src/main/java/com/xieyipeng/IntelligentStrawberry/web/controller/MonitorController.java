@@ -44,8 +44,8 @@ public class MonitorController {
     @ResponseBody
     public String insertMonitor() {
         try {
-            String url = "file:///C:/Users/xieyipeng/Desktop/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3.html";
-//            String url = "http://192.168.0.1/cgi-bin/node.cgi";
+//            String url = "file:///C:/Users/xieyipeng/Desktop/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3.html";
+            String url = "http://192.168.0.1/cgi-bin/node.cgi";
             StringBuilder stringBuilder = new StringBuilder();
             URL mine_url = new URL(url);
             URLConnection connection = mine_url.openConnection();
@@ -80,7 +80,7 @@ public class MonitorController {
             param.put("monitor_humidity", monitor_humidity);
             param.put("monitor_sensor_id", monitor_sensor_id);
 //            System.out.println("温度： " + monitor_temperature);
-//            monitorService.insertMonitor(param);
+            monitorService.insertMonitor(param);
 //            System.out.println("success insert");
             return "success";
         } catch (Exception e) {
@@ -180,8 +180,7 @@ public class MonitorController {
         }catch (Exception e){
             e.printStackTrace();
             return "failed";
-        }
-        return "success";
+        }        return "success";
     }
 
 //    /**
